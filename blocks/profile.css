@@ -54,3 +54,128 @@
     margin-left: auto;
     border: solid 1px #fff;
 }
+
+@media screen and (max-width:770px) {
+    .profile{
+        width: 90vw;
+        padding-bottom: 50px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .profile__info{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        justify-content: center;
+        margin: 0;
+        padding: 0px;
+    }
+    
+    .profile__description {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 340px;
+        margin-right: auto;
+        margin-left: 28px;
+    }
+}
+
+@media screen and (max-width:620px) {
+    .profile{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .profile__info{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .profile__image{
+       margin: 0 250px 0;
+    }
+
+    .profile__title {
+        margin-top: 15px;
+    }
+
+    .profile__description{
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 320px;
+    }
+
+    .profile__add-button {
+        width: 47vw;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .profile{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .profile__info{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .profile__image{
+       margin: 0 100px 0;
+    }
+
+    .profile__title {
+        font-size: 22px;
+        line-height: 27px;
+        margin-top: 15px;
+    }
+
+    .profile__description{
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 16px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 200px;
+    }
+
+    .profile__edit-button {
+        margin-left: 10px;
+        height: 18px;
+        width: 18px;
+    }
+
+    .profile__add-button {
+        margin: 20px 20px 0;
+        width: 90vw;
+    }
+
+}
