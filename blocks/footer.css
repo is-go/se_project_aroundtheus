@@ -1,6 +1,6 @@
 .footer {
-  padding-top: 40px;
-  padding-bottom: 33px;
+  padding-top: 67px;
+  padding-bottom: 60px;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -14,16 +14,21 @@
   margin: 0;
 }
 
-@media screen and (max-width: 620px) {
-  .footer__copyright {
-    font-size: 14px;
-    line-height: 17px;
-  }
-}
-
 @media screen and (max-width: 920px) {
   .footer {
     margin: 0 20px 0;
     max-width: calc(100% - 40px);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .footer {
+    padding-top: 48px;
+    padding-bottom: 33px;
+  }
+
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
   }
 }
