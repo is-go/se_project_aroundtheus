@@ -18,9 +18,9 @@ It also has a profile for the users.
 - ![620 Breakpoint](./images/demo/620%20Breakpoint.png)
 - ![320 Breakpoint](./images/demo/320%20Breakpoint.png)
 
-## Link to Repository
+## Link to Deployed Landing Page
 
-- https://github.com/is-go/se_project_aroundtheus
+- https://is-go.github.io/se_project_aroundtheus/
 
 ## Plan on improving the site
 
