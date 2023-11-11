@@ -31,6 +31,7 @@
               type="button"
               name="edit-button"
               class="profile__edit-button"
+              id="profile-edit-button"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
@@ -140,10 +141,10 @@
       </footer>
     </div>
 
-    <div class="modal modal_opened">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <p class="modal__heading">Edit profile</p>
-        <button class="modal__close"></button>
+        <button class="modal__close" id="profile-edit-button-close"></button>
         <form action="#" class="modal__form">
           <input type="text" name="title" class="modal__input" />
           <input type="text" name="description" class="modal__input" />
