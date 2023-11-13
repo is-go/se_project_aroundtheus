@@ -1,6 +1,6 @@
 # Around The U.S.
 
-First completion of an interactive page where users can add photos and remove them as well.
+Interactive page where users can add photos and remove them as well.
 It also has a profile for the users.
 
 ## Project features
@@ -10,6 +10,7 @@ It also has a profile for the users.
 - Grid
 - Responsive Design
 - Multiple Break Points
+- Interactive Modal
 
 ## Screenshots
 
@@ -17,6 +18,7 @@ It also has a profile for the users.
 - ![770 Breakpoint](./images/demo/770-Breakpoint.png)
 - ![620 Breakpoint](./images/demo/620%20Breakpoint.png)
 - ![320 Breakpoint](./images/demo/320%20Breakpoint.png)
+- ![Interactive Modal](./images/demo/Interactive-Modal.png)
 
 ## Link to Deployed Landing Page
 

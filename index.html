@@ -42,98 +42,7 @@
           ></button>
         </section>
         <section class="cards page__section">
-          <ul class="cards__list">
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/yosemite-valley.png"
-                alt="Lake louise"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Yosemite Valley</h2>
-                <button
-                  type="button"
-                  name="like-button"
-                  class="card__like-button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lake-louise.png"
-                alt="Lake louise"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lake Louise</h2>
-                <button
-                  type="button"
-                  name="like-button"
-                  class="card__like-button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/bald-mountains.png"
-                alt="Lake louise"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button
-                  type="button"
-                  name="like-button"
-                  class="card__like-button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/latemar.png"
-                alt="Lake louise"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Latemar</h2>
-                <button
-                  type="button"
-                  name="like-button"
-                  class="card__like-button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/vanoise-national-park.png"
-                alt="Lake louise"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Vanoise National Park</h2>
-                <button
-                  type="button"
-                  name="like-button"
-                  class="card__like-button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lago-di-braies.png"
-                alt="Lake louise"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lago di Braies</h2>
-                <button
-                  type="button"
-                  name="like-button"
-                  class="card__like-button"
-                ></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
@@ -143,16 +52,43 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <p class="modal__heading">Edit profile</p>
+        <h3 class="modal__heading">Edit profile</h3>
         <button class="modal__close" id="profile-edit-button-close"></button>
         <form action="#" class="modal__form">
-          <input type="text" name="title" class="modal__input" />
-          <input type="text" name="description" class="modal__input" />
-          <button class="modal__button">Save</button>
+          <input
+            type="text"
+            name="title"
+            class="modal__input"
+            id="profile-title-input"
+            placeholder="Name"
+            required
+          />
+          <input
+            type="text"
+            name="description"
+            class="modal__input"
+            id="profile-description-input"
+            placeholder="Bio"
+            required
+          />
+          <button type="submit" class="modal__button">Save</button>
         </form>
       </div>
     </div>
 
-    <script src="./scripts/index.js"></script>
+    <template id="card-template">
+      <li class="card">
+        <img class="card__image" src="" alt="" />
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button
+            type="button"
+            name="like-button"
+            class="card__like-button"
+          ></button>
+        </div>
+      </li>
+    </template>
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>
