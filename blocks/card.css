@@ -2,7 +2,24 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
+  position: relative;
+}
+
+.card__delete-button {
+  background: transparent url("../images/Delete-button.svg") center no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  width: 18px;
+  height: 19px;
+  border: none;
+  transition: opacity 0.3s ease;
+}
+
+.card__delete-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .card__image {
@@ -38,6 +55,10 @@
   height: 18px;
   border: none;
   position: relative;
+}
+
+.card__like-button_active {
+  background-image: url(../images/Like-activated.svg);
 }
 
 .card__like-button:hover {

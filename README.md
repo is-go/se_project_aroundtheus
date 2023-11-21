@@ -10,7 +10,7 @@ It also has a profile for the users.
 - Grid
 - Responsive Design
 - Multiple Break Points
-- Interactive Modal
+- Interactive Modals
 
 ## Screenshots
 
@@ -18,7 +18,10 @@ It also has a profile for the users.
 - ![770 Breakpoint](./images/demo/770-Breakpoint.png)
 - ![620 Breakpoint](./images/demo/620%20Breakpoint.png)
 - ![320 Breakpoint](./images/demo/320%20Breakpoint.png)
-- ![Interactive Modal](./images/demo/Interactive-Modal.png)
+- ![Interactive Edit Modal](./images/demo/Interactive-Modal.png)
+- ![Interactive Add Card Modal](./images/demo/Add-card-modal.png)
+- ![Added Card](./images/demo/Added-card.png)
+- ![Interactive Card Image  Modal](./images/demo/Card-image-modal.png)
 
 ## Link to Deployed Landing Page
 
