@@ -1,27 +1,27 @@
 const initialCards = [
   {
     name: "Orlando",
-    link: "./images/orlando.jpg",
+    link: "./images/orlando.webp",
   },
   {
     name: "South Beach",
-    link: "./images/south-beach.jpg",
+    link: "./images/south-beach.webp",
   },
   {
     name: "Nashville",
-    link: "./images/nashville.jpg",
+    link: "./images/nashville.webp",
   },
   {
     name: "French Quarters",
-    link: "./images/french-quarters.jpg",
+    link: "./images/french-quarters.webp",
   },
   {
     name: "Boston",
-    link: "./images/boston.jpg",
+    link: "./images/boston.webp",
   },
   {
     name: "Houston",
-    link: "./images/houston.jpg",
+    link: "./images/houston.webp",
   },
 ];
 
