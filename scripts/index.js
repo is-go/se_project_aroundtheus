@@ -17,7 +17,7 @@ const initialCards = [
   },
   {
     name: "Boston",
-    link:"https://images.unsplash.com/photo-1491249149628-28cb9a16356a?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    link: "https://images.unsplash.com/photo-1491249149628-28cb9a16356a?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Houston",
@@ -28,6 +28,7 @@ const initialCards = [
 //
 // Elements
 //
+
 const closeButtons = document.querySelectorAll(".modal__close");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -84,10 +85,40 @@ function getCardElement(cardData) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  const firstInput = modal.querySelector(".modal__input");
+  if (firstInput) {
+    firstInput.focus();
+  }
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  const inputElements = modal.querySelectorAll(".modal__input");
+
+  inputElements.forEach((inputElement) => {
+    const errorMessageElement = modal.querySelector(
+      `#${inputElement.id}-error`
+    );
+    inputElement.classList.remove(config.inputErrorClass);
+    errorMessageElement.textContent = "";
+    errorMessageElement.classList.remove(config.errorClass);
+  });
+}
+
+
+function handleKeyDown(event) {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal.modal_opened");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+}
+
+function handleOverlayClick(event) {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(event.target);
+  }
 }
 
 //
@@ -139,3 +170,6 @@ closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
   button.addEventListener("click", () => closeModal(modal));
 });
+
+document.addEventListener("keydown", handleKeyDown);
+document.addEventListener("click", handleOverlayClick);
