@@ -26,6 +26,7 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 36px;
+  margin:0;
   color: #000;
 }
 
@@ -67,6 +68,12 @@
   gap: 30px;
 }
 
+.modal__label {
+  display: flex;
+  flex-direction: column;
+
+}
+
 .modal__input {
   font-family: "Inter", "Arial", serif;
   font-size: 14px;
@@ -74,11 +81,13 @@
   line-height: 17px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0);
   margin: 0;
   padding: 0;
   padding-bottom: 10px;
-  margin-right: 168px;
+  padding-right: 168px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .modal__input_type_error {
@@ -92,6 +101,8 @@
   line-height: 15px;
   text-align: left;
   color: #ff0000;
+  max-width: 368px;
+  overflow-wrap: break-word;
 }
 
 .modal__button {
@@ -151,7 +162,15 @@
   text-align: left;
 }
 
+input[type="text"] {
+  margin: 0;
+  max-width: 368px;
+}
 
+input[type="url"] {
+  margin: 0;
+  max-width: 368px;
+}
 
 @media screen and (max-width: 620px) {
   .modal__container {

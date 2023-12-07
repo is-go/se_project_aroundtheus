@@ -23,7 +23,7 @@ function hideInputError(
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
-  inputElement.classList.remove(inputErrorClass);
+  
   errorMessageElement.textContent = "";
   errorMessageElement.classList.remove(errorClass);
 }
@@ -66,9 +66,9 @@ function toggleButtonState(
 }
 
 function setEventListeners(form, config) {
-  const { inputSelector } = config;
+  const { inputSelector, submitButtonSelector } = config;
   const inputElements = [...form.querySelectorAll(inputSelector)];
-  const submitButton = form.querySelector(".modal__button_disabled");
+  const submitButton = form.querySelector(submitButtonSelector);
 
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
@@ -103,3 +103,4 @@ const config = {
 };
 
 enableValidation(config);
+
