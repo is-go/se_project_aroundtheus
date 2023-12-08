@@ -207,4 +207,16 @@ input[type="url"] {
     padding-top: 14.5px;
     padding-bottom: 14.5px;
   }
+
+  input[type="text"] {
+    margin: 0;
+    width: 238px;
+    max-width: 238px;
+  }
+
+  input[type="url"] {
+    margin: 0;
+    width: 238px;
+    max-width: 238px;
+  }
 }
