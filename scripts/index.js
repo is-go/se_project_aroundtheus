@@ -112,7 +112,6 @@ function closeModal(modal) {
   document.removeEventListener("click", handleOverlayClick);
 }
 
-
 //
 // Event Handlers
 //
@@ -161,15 +160,6 @@ initialCards.forEach((cardData) => {
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
   button.addEventListener("click", () => {
-       closeModal(modal);
+    closeModal(modal);
   });
 });
-
-modalList.forEach((modal) => {
-  modal.addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal")) {
-      closeModal(modal);
-    }
-  });
-});
-

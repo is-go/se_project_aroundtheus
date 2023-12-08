@@ -2,11 +2,7 @@
 // Functions
 //
 
-function showInputError(
-  formElement,
-  inputElement,
-  { inputErrorClass, errorClass }
-) {
+function showInputError( formElement,inputElement,{ inputErrorClass, errorClass }) {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
@@ -15,17 +11,14 @@ function showInputError(
   errorMessageElement.classList.add(errorClass);
 }
 
-function hideInputError(
-  formElement,
-  inputElement,
-  { inputErrorClass, errorClass }
-) {
+function hideInputError( formElement,inputElement, { inputErrorClass, errorClass }) {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
-  
+
   errorMessageElement.textContent = "";
   errorMessageElement.classList.remove(errorClass);
+  inputElement.classList.remove(inputErrorClass);
 }
 
 function checkInputValidity(formElement, inputElement, config) {
@@ -69,6 +62,7 @@ function setEventListeners(form, config) {
   const { inputSelector, submitButtonSelector } = config;
   const inputElements = [...form.querySelectorAll(inputSelector)];
   const submitButton = form.querySelector(submitButtonSelector);
+  toggleButtonState(inputElements, submitButton, config);
 
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
@@ -103,4 +97,3 @@ const config = {
 };
 
 enableValidation(config);
-
