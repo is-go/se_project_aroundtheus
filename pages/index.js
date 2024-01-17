@@ -1,5 +1,5 @@
-import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidation.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -116,8 +116,8 @@ function handleAddNewCardFormSubmit(evt) {
   evt.preventDefault();
   const name = addNewCardTitleInput.value;
   const link = addNewCardUrlInput.value;
-  const card = new Card({ name, link }, "#card-template", handleImageClick);
-  cardListEl.prepend(card.getView());
+  const cardElement = createCard({ name, link });
+  cardListEl.prepend(cardElement);
   evt.target.reset();
   closeModal(addNewCardModal);
 }
@@ -134,13 +134,21 @@ profileEditButton.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-addNewCardButton.addEventListener("click", () => openModal(addNewCardModal));
+addNewCardButton.addEventListener("click", () => {
+  addCardFormValidator.toggleButtonState();
+  openModal(addNewCardModal);
+});
 
 addNewCardForm.addEventListener("submit", handleAddNewCardFormSubmit);
 
-initialCards.forEach((cardData) => {
+const createCard = (cardData) => {
   const card = new Card(cardData, "#card-template", handleImageClick);
-  cardListEl.prepend(card.getView());
+  return card.getView();
+};
+
+initialCards.forEach((cardData) => {
+  const cardElement = createCard(cardData);
+  cardListEl.prepend(cardElement);
 });
 
 closeButtons.forEach((button) => {
