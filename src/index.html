@@ -18,13 +18,17 @@
       <header class="header page__section">
         <img
           class="header__logo"
-          src="./images/logo-white.svg"
+          src="<%=require('./images/logo-white.svg')%>"
           alt="Around the U.S Logo"
         />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img class="profile__image" src="./images/Avatar.png" alt="avatar" />
+          <img
+            class="profile__image"
+            src="<%=require('./images/Avatar.png')%>"
+            alt="avatar"
+          />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -179,6 +183,5 @@
         </div>
       </li>
     </template>
-    <script type="module" src="./pages/index.js" defer></script>
   </body>
 </html>
