@@ -1,27 +1,45 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, handleFromSubmit) {
+  constructor(popupSelector, handleFormSubmit, formSelector) {
     super({ popupSelector });
-    this._handleFormSubmit = handleFromSubmit;
-    this._popupForm = this._popupElement.querySelector(".modal__form");
-    this.setEventListeners();
+    this._handleFormSubmit = handleFormSubmit;
+    this._popupForm = this._popupElement.querySelector(formSelector);
+    this._inputList = Array.from(
+      this._popupForm.querySelectorAll(".modal__input")
+    );
   }
 
   _getInputValues() {
-    const inputs = this._popupForm.querySelectorAll(".modal__input");
     const inputValues = {};
-    inputs.forEach((input) => (inputValues[input.name] = input.value));
+    this._inputList.forEach((input) => {
+      inputValues[input.name] = input.value;
+    });
     return inputValues;
   }
 
-  close() {
-    // this._popupForm.reset(); // reset() not working
-    super.close();
+  resetInputValues() {
+    this._inputList.forEach((input) => {
+      input.value = "";
+    });
   }
 
   setEventListeners() {
-    this._popupElement.addEventListener("submit", this._handleFormSubmit);
+    this._popupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const inputValuesData = this._getInputValues();
+      this._handleFormSubmit(inputValuesData);
+      this.close();
+    });
     super.setEventListeners();
   }
+
+  // formReset() {
+  //   this._popupForm.reset();
+  // }
+
+  // close() {
+  //   this._popupForm.reset();
+  //   super.close();
+  // }
 }

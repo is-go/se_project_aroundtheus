@@ -25,14 +25,16 @@ export const initialCards = [
   },
 ];
 
-const profileEditButton = document.querySelector(".profile__edit-button");
-const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
-const profileEditForm = document.forms["profile-edit-form"];
-const addNewCardButton = document.querySelector(".profile__add-button");
-const addNewCardForm = document.forms["add-card-form"];
-const cardListEl = document.querySelector(".cards__list");
-const settings = {
+export const profileEditModal = document.querySelector("#profile-edit-modal");
+export const profileEditButton = document.querySelector(
+  ".profile__edit-button"
+);
+export const profileEditInputs = Array.from(
+  profileEditModal.querySelectorAll(".modal__input")
+);
+export const addNewCardButton = document.querySelector(".profile__add-button");
+
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -41,13 +43,7 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-export {
-  profileEditButton,
-  profileTitle,
-  profileDescription,
-  profileEditForm,
-  addNewCardButton,
-  addNewCardForm,
-  cardListEl,
-  settings,
-};
+export const formList = Array.from(
+  document.querySelectorAll(settings.formSelector)
+);
+export const formValidationObj = {};

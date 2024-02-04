@@ -12,13 +12,13 @@
   display: flex;
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0s 0.4s, opacity 0.4s ease;
+  transition: visibility 0s 0.4s, opacity 0.3s ease;
 }
 
 .modal_opened {
   opacity: 1;
   visibility: visible;
-  transition: visibility 0s, opacity 0.4s ease;
+  transition: visibility 0s, opacity 0.3s ease;
 }
 
 .modal__container {
@@ -72,9 +72,7 @@
 .modal__label {
   display: flex;
   flex-direction: column;
-
 }
-
 
 .modal__input {
   font-family: "Inter", "Arial", serif;
@@ -206,5 +204,4 @@
     padding-top: 14.5px;
     padding-bottom: 14.5px;
   }
-
 }
