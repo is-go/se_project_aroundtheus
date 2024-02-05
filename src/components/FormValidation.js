@@ -50,54 +50,35 @@ export default class FormValidation {
     this._hideInputError(inputElement);
   }
 
-  checkFormValidity() {
-    this._inputsArray.forEach((inputElement) => {
-      this._checkInputValidity(inputElement);
-      this._toggleButtonState(this._inputsArray);
-    });
-    // Array.from(this._formElement.querySelectorAll(this._inputSelector)).some(
-    //   (inputElement) => !inputElement.validity.valid
-    // this._inputsArray.some((inputElement) => !inputElement.validity.valid);-----wrong---make arra first?
-  }
-
   _isFormInvalid = (inputsArray) => {
     return inputsArray.some((inputElement) => !inputElement.validity.valid);
   };
 
-  submitDisabled() {
+  _disableSubmit() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.setAttribute("disabled", true);
   }
 
-  _submitEnabled() {
+  _enableSubmit() {
     this._submitButton.classList.remove(this._inactiveButtonClass);
     this._submitButton.removeAttribute("disabled");
   }
 
   _toggleButtonState() {
     if (this._isFormInvalid(this._inputsArray)) {
-      this.submitDisabled();
+      this._disableSubmit();
     } else {
-      this._submitEnabled();
+      this._enableSubmit();
     }
   }
 
-  // resetValidity() {
-  //   this._formElement.reset();
-  //   this.toggleButtonState();
-  //   this._inputsArray.forEach((input) => {
-  //     input.value = "";
-  //   });
-  // }
+  resetValidation() {
+    this._toggleButtonState(); //<== controlling the submit button ==
 
-  // formReset() {
-  //   // this._inputsArray.forEach((inputElement) => {
-  //   //   inputElement.value = "";
-  //   // });
-  //   this._inputsArray.forEach((inputElement) => {
-  //     inputElement.value = "";
-  //   });
-  // }
+    this._inputsArray.forEach((inputElement) => {
+      this._hideInputError(inputElement); //<== clearing errors ==
+    });
+  }
 
   _setEventListeners() {
     this._toggleButtonState(); // first?

@@ -20,13 +20,6 @@ import "./index.css";
 ///////////////////////////////////////-Form Validator iterative/////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// formList.forEach((formElement) => {---not placing form into object---
-//   const formValidator = new FormValidation(formElement, settings);
-//   const formName = formElement.getAttribute("name");
-//   formValidator.enableValidation();
-//   formValidationObj[formName] = formValidator;
-// });
-
 formList.forEach((formElement) => {
   const formName = formElement.getAttribute("name");
   if (formName) {
@@ -71,31 +64,17 @@ const newCardPopup = new PopupWithForm(
 );
 newCardPopup.setEventListeners();
 
-// function handleAddNewCardFormSubmit(inputValuesData) {
-//   //---obj not working
-//   const AddedCard = createCard(inputValuesData);
-//   cardSection.addItem(AddedCard);
-//   formValidationObj.newCardPopup.formReset();
-//   newCardPopup.close();
-// }
-
 function handleAddNewCardFormSubmit(inputValuesData) {
-  const AddedCard = createCard(inputValuesData);
-  cardSection.addItem(AddedCard);
+  const addedCard = createCard(inputValuesData);
+  cardSection.addItem(addedCard);
   newCardPopup.resetInputValues();
-  newCardPopup.submitDisabled();
   newCardPopup.close();
 }
 
 addNewCardButton.addEventListener("click", () => {
   newCardPopup.open();
+  formValidationObj["add-card-form"].resetValidation();
 });
-
-// const addCardFormValidator = new FormValidator(settings, "#add-card-form");
-// addCardFormValidator.enableValidation();
-// DRY do not repeat validation code-iterate
-
-// addNewCardForm.addEventListener("submit", handleAddNewCardFormSubmit);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////-Profile Rendering/-//////////////////////////////////////////////////////
@@ -105,31 +84,18 @@ const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 function setProfileInputs() {
   const userProfileInfo = userInfo.getUserInfo();
-  profileEditInputs[0].value = userProfileInfo.name;
-  profileEditInputs[1].value = userProfileInfo.description;
+  const [nameInput, descriptionInput] = profileEditInputs;
+  nameInput.value = userProfileInfo.name;
+  descriptionInput.value = userProfileInfo.description;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////-Edit Profile Modal-//////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// profileEditButton.addEventListener("click", () => {
-//   setProfileInputs();
-//   formValidationObj.editProfilePopup.checkFormValidity(); //----obj not working
-//   editProfilePopup.open();
-
-//   //   // editProfileFormValidator.resetValidity();-null
-//   //   // const { name, description } = userInfo.getUserInfo();-change to object
-//   //   // profileTitle.value = name; - change to object
-//   //   // profileDescription.value = description; - change to object
-//   //   // editProfilePopup.open();
-// });
-
 profileEditButton.addEventListener("click", () => {
   setProfileInputs();
-  if (formValidationObj["editProfilePopup"]) {
-    formValidationObj["editProfilePopup"].checkFormValidity();
-  }
+  formValidationObj["profile-edit-form"].resetValidation();
   editProfilePopup.open();
 });
 
@@ -143,13 +109,5 @@ editProfilePopup.setEventListeners();
 function handleProfileEditSubmit(inputValuesData) {
   userInfo.setUserInfo(inputValuesData);
   editProfilePopup.resetInputValues();
-  editProfilePopup.submitDisabled();
   editProfilePopup.close();
 }
-
-// const editProfileFormValidator = new FormValidator(
-//   settings,
-//   "#profile-edit-form"
-// );
-// editProfileFormValidator.enableValidation();
-// DRY do not repeat validation code-iterate

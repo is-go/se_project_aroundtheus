@@ -20,14 +20,7 @@ export default class PopupWithForm extends Popup {
   }
 
   resetInputValues() {
-    this._inputList.forEach((input) => {
-      input.value = "";
-    });
-  }
-
-  submitDisabled() {
-    this._submitButton.classList.add("modal__button_disabled");
-    this._submitButton.disabled = true;
+    this._popupForm.reset();
   }
 
   setEventListeners() {
@@ -39,13 +32,4 @@ export default class PopupWithForm extends Popup {
     });
     super.setEventListeners();
   }
-
-  // formReset() {
-  //   this._popupForm.reset();
-  // }
-
-  // close() {
-  //   this._popupForm.reset();
-  //   super.close();
-  // }
 }
