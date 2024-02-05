@@ -14,7 +14,7 @@ import {
   formValidationObj,
   settings,
 } from "../utils/constants.js";
-import "../pages/index.css";
+import "./index.css";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////-Form Validator iterative/////////////////////////////////////////////////
@@ -83,13 +83,13 @@ function handleAddNewCardFormSubmit(inputValuesData) {
   const AddedCard = createCard(inputValuesData);
   cardSection.addItem(AddedCard);
   newCardPopup.resetInputValues();
+  newCardPopup.submitDisabled();
   newCardPopup.close();
 }
 
-addNewCardButton.addEventListener("click", () =>
-  // addCardFormValidator.resetValidity();
-  newCardPopup.open()
-);
+addNewCardButton.addEventListener("click", () => {
+  newCardPopup.open();
+});
 
 // const addCardFormValidator = new FormValidator(settings, "#add-card-form");
 // addCardFormValidator.enableValidation();
@@ -142,6 +142,8 @@ editProfilePopup.setEventListeners();
 
 function handleProfileEditSubmit(inputValuesData) {
   userInfo.setUserInfo(inputValuesData);
+  editProfilePopup.resetInputValues();
+  editProfilePopup.submitDisabled();
   editProfilePopup.close();
 }
 

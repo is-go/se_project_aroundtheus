@@ -8,6 +8,7 @@ export default class PopupWithForm extends Popup {
     this._inputList = Array.from(
       this._popupForm.querySelectorAll(".modal__input")
     );
+    this._submitButton = this._popupForm.querySelector(".modal__button");
   }
 
   _getInputValues() {
@@ -22,6 +23,11 @@ export default class PopupWithForm extends Popup {
     this._inputList.forEach((input) => {
       input.value = "";
     });
+  }
+
+  submitDisabled() {
+    this._submitButton.classList.add("modal__button_disabled");
+    this._submitButton.disabled = true;
   }
 
   setEventListeners() {

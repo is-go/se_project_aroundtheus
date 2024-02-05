@@ -64,50 +64,48 @@ export default class FormValidation {
     return inputsArray.some((inputElement) => !inputElement.validity.valid);
   };
 
-  _submitDisabled() {
+  submitDisabled() {
     this._submitButton.classList.add(this._inactiveButtonClass);
-    this._submitButton.disabled = true;
+    this._submitButton.setAttribute("disabled", true);
   }
 
   _submitEnabled() {
     this._submitButton.classList.remove(this._inactiveButtonClass);
-    this._submitButton.disabled = false;
+    this._submitButton.removeAttribute("disabled");
   }
 
   _toggleButtonState() {
-    // const isFormInvalid = this.checkFormValidity(); -wrong need 'valid value'
-
     if (this._isFormInvalid(this._inputsArray)) {
-      this._submitDisabled();
-      // this._submitButton.classList.add(this._inactiveButtonClass);
-      // this._submitButton.disabled = true;
+      this.submitDisabled();
     } else {
       this._submitEnabled();
-      // this._submitButton.classList.remove(this._inactiveButtonClass);
-      // this._submitButton.disabled = false;
     }
   }
 
-  // resetValidity() {---useless
+  // resetValidity() {
   //   this._formElement.reset();
   //   this.toggleButtonState();
-  //   this._inputElements.forEach((inputElement) => {
-  //     this._hideInputError(inputElement);
+  //   this._inputsArray.forEach((input) => {
+  //     input.value = "";
   //   });
   // }
 
-  // formReset() {---useless
+  // formReset() {
+  //   // this._inputsArray.forEach((inputElement) => {
+  //   //   inputElement.value = "";
+  //   // });
   //   this._inputsArray.forEach((inputElement) => {
-  //     inputElement.value.reset();
+  //     inputElement.value = "";
   //   });
   // }
 
   _setEventListeners() {
-    this._toggleButtonState(this._inputsArray);
+    this._toggleButtonState(); // first?
+
     this._inputsArray.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(this._inputsArray);
+        this._toggleButtonState(); // and after?
       });
     });
   }
