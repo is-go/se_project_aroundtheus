@@ -108,6 +108,5 @@ editProfilePopup.setEventListeners();
 
 function handleProfileEditSubmit(inputValuesData) {
   userInfo.setUserInfo(inputValuesData);
-  editProfilePopup.resetInputValues();
   editProfilePopup.close();
 }
