@@ -54,7 +54,7 @@ export default class FormValidation {
     return inputsArray.some((inputElement) => !inputElement.validity.valid);
   };
 
-  _disableSubmit() {
+  disableSubmit() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.setAttribute("disabled", true);
   }
@@ -66,7 +66,7 @@ export default class FormValidation {
 
   _toggleButtonState() {
     if (this._isFormInvalid(this._inputsArray)) {
-      this._disableSubmit();
+      this.disableSubmit();
     } else {
       this._enableSubmit();
     }

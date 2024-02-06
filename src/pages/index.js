@@ -68,12 +68,12 @@ function handleAddNewCardFormSubmit(inputValuesData) {
   const addedCard = createCard(inputValuesData);
   cardSection.addItem(addedCard);
   newCardPopup.resetInputValues();
+  formValidationObj["add-card-form"].disableSubmit();
   newCardPopup.close();
 }
 
 addNewCardButton.addEventListener("click", () => {
   newCardPopup.open();
-  formValidationObj["add-card-form"].resetValidation();
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
