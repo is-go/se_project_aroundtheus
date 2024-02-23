@@ -28,15 +28,20 @@
             src="<%=require('./images/Avatar.png')%>"
             alt="avatar"
           />
+          <button
+            class="profile__image_edit"
+            type="button"
+            name="profile-image-edit"
+          ></button>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               type="button"
               name="edit-button"
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button
             type="submit"
@@ -56,7 +61,7 @@
     <!---edit profile modal--->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <h3 class="modal__heading">Edit profile</h3>
+        <h3 class="modal__heading modal__heading-with-form">Edit profile</h3>
         <button class="modal__close" id="profile-edit-button-close"></button>
         <form
           action="#"
@@ -105,10 +110,41 @@
       </div>
     </div>
 
+    <!---Avatar-modal--->
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <h3 class="modal__heading modal__heading-with-form">
+          Change profile picture
+        </h3>
+        <button class="modal__close" id="avatar-button-close"></button>
+        <form
+          action="#"
+          class="modal__form"
+          id="avatar-form"
+          name="avatar-form"
+          novalidate
+        >
+          <label class="modal__label">
+            <input
+              type="url"
+              name="link"
+              class="modal__input modal__input_type_url"
+              id="avatar-url-input"
+              placeholder="Avatar URL"
+              pattern="https?://.+"
+              required
+            />
+            <span class="modal__error" id="avatar-input-error"></span>
+          </label>
+          <button type="submit" class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+
     <!---add card modal--->
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
-        <h3 class="modal__heading">New Place</h3>
+        <h3 class="modal__heading modal__heading-with-form">New Place</h3>
         <button class="modal__close" id="add-card-button-close"></button>
         <form
           action="#"
@@ -165,6 +201,24 @@
       </div>
     </div>
 
+    <!---Delete Card Modal-->
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          type="button"
+          id="delete-card-modal-close"
+          name="modal-close"
+        ></button>
+        <h3 class="modal__heading modal__heading-wtih-inquiry">
+          Are you sure?
+        </h3>
+        <form class="modal__form" name="delete-card-form">
+          <button type="button" class="modal__button">Yes</button>
+        </form>
+      </div>
+    </div>
+
     <!---card template-->
     <template id="card-template">
       <li class="card">
@@ -178,6 +232,7 @@
           ></button>
           <button
             type="button"
+            id="delete-button"
             name="delete-button"
             class="card__delete-button"
           ></button>
