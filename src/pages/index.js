@@ -7,6 +7,7 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import Api from "../components/Api.js";
 import {
+  profileEditModal,
   profileEditButton,
   profileEditInputs,
   profileEditImage,

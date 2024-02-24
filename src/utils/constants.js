@@ -5,7 +5,7 @@ export const options = {
     "Content-Type": "application/json",
   },
 };
-
+export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const profileEditButton = document.querySelector(
   ".profile__edit-button"
 );
