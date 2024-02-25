@@ -213,19 +213,6 @@ const profileEditAvatar = new PopupWithForm(
 );
 profileEditAvatar.setEventListeners();
 
-api
-  .getUserInfo()
-  .then((user) => {
-    userInfo.setUserInfo({
-      name: user.name,
-      description: user.description,
-    });
-    userInfo.setUserAvatar(user.avatar);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
 function handleProfileAvatar(values) {
   profileEditAvatar.renderSaving(true);
   api
