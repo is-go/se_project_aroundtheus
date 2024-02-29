@@ -76,6 +76,7 @@ function handleLikes(card) {
     .likeCard(card.getId(), card.isLiked())
     .then((res) => {
       card.toggleLikedStatus(res.isLiked);
+      return api.likeCard(card.getId(), res.isLiked);
     })
     .catch((err) => {
       console.error(`Error: ${err}`);
@@ -96,6 +97,8 @@ function handleDeleteCard(card) {
       .deleteCard(card.getId())
       .then(() => {
         card.handleDeleteCard();
+      })
+      .then(() => {
         inquiryModal.close();
       })
       .catch((err) => {
@@ -131,6 +134,8 @@ function handleAddNewCardFormSubmit(values) {
       cardDisplay.addItem(newCard);
       newCardPopup.resetInputValues();
       formValidationObj["add-card-form"].disableSubmit();
+    })
+    .then(() => {
       newCardPopup.close();
     })
     .catch(console.error)
@@ -192,6 +197,8 @@ function handleProfileEditSubmit(values) {
         name: res.name,
         description: res.about,
       });
+    })
+    .then(() => {
       editProfilePopup.close();
     })
     .catch(console.error)
@@ -219,6 +226,10 @@ function handleProfileAvatar(values) {
     .setAvatar(values)
     .then((res) => {
       userInfo.setUserAvatar(res.avatar);
+      profileEditAvatar.resetInputValues();
+      formValidationObj["avatar-form"].disableSubmit();
+    })
+    .then(() => {
       profileEditAvatar.close();
     })
     .catch((err) => {

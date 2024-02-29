@@ -4,7 +4,7 @@ export default class Card {
     cardSelector,
     handleImageClick,
     handleDeleteCard,
-    handleLikeIcon
+    handleLikes
   ) {
     this._name = data.name;
     this._link = data.link;
@@ -13,12 +13,12 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteCard = handleDeleteCard;
-    this._handleLikeIcon = handleLikeIcon;
+    this._handleLikes = handleLikes;
   }
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this.handleLikeIcon();
+      this._handleLikes(this);
     });
 
     this._deleteButton.addEventListener("click", () => {
@@ -46,9 +46,10 @@ export default class Card {
   getId() {
     return this._id;
   }
-  toggleLikedSatus(isLiked) {
+  toggleLikedStatus(isLiked) {
     this._isLiked = isLiked;
-    this.setLikedStatus;
+    this.setLikedStatus();
+    this.handleLikeIcon();
   }
   setLikedStatus() {
     if (this.isLiked()) {
