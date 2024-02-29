@@ -48,7 +48,7 @@ export default class Card {
   }
   toggleLikedStatus(isLiked) {
     this._isLiked = isLiked;
-    this.setLikedStatus();
+    // this.setLikedStatus();
     this.handleLikeIcon();
   }
   setLikedStatus() {

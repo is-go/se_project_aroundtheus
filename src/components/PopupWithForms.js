@@ -14,9 +14,9 @@ export default class PopupWithForm extends Popup {
     );
   }
 
-  renderSaving(isSaving) {
-    isSaving
-      ? (this._button.textContent = "Saving...")
+  renderLoading(isLoading, loadingText = "Saving...") {
+    isLoading
+      ? (this._button.textContent = loadingText)
       : (this._button.textContent = this._buttonText);
   }
 
@@ -37,7 +37,6 @@ export default class PopupWithForm extends Popup {
       e.preventDefault();
       const inputValuesData = this._getInputValues();
       this._handleFormSubmit(inputValuesData);
-      this.close();
     });
     super.setEventListeners();
   }

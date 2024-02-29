@@ -9,9 +9,9 @@ export default class PopupInquiry extends Popup {
     this._buttonText = this._button.textContent;
   }
 
-  renderSaving(isSaving) {
-    isSaving
-      ? (this._button.textContent = "Saving...")
+  renderLoading(isLoading, loadingText = "Deleting...") {
+    isLoading
+      ? (this._button.textContent = loadingText)
       : (this._button.textContent = this._buttonText);
   }
 

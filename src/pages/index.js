@@ -75,13 +75,15 @@ function handleLikes(card) {
   api
     .likeCard(card.getId(), card.isLiked())
     .then((res) => {
-      card.toggleLikedStatus(res.isLiked);
-      return api.likeCard(card.getId(), res.isLiked);
+      card.toggleLikedStatus(card.isLiked);
+      card.handleLikesIcon();
+      return api.likeCard(card.getId(), isLiked), res.isLiked;
     })
     .catch((err) => {
       console.error(`Error: ${err}`);
     });
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////-Delete Card Modal-//////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +94,7 @@ inquiryModal.setEventListeners();
 function handleDeleteCard(card) {
   inquiryModal.open();
   inquiryModal.confirmAction(() => {
-    inquiryModal.renderSaving(true);
+    inquiryModal.renderLoading(true);
     api
       .deleteCard(card.getId())
       .then(() => {
@@ -105,7 +107,7 @@ function handleDeleteCard(card) {
         console.error(err);
       })
       .finally(() => {
-        inquiryModal.renderSaving(false);
+        inquiryModal.renderLoading(false);
       });
   });
 }
@@ -126,7 +128,7 @@ addNewCardButton.addEventListener("click", () => {
 });
 
 function handleAddNewCardFormSubmit(values) {
-  newCardPopup.renderSaving(true);
+  newCardPopup.renderLoading(true);
   api
     .makeCard(values)
     .then((res) => {
@@ -140,7 +142,7 @@ function handleAddNewCardFormSubmit(values) {
     })
     .catch(console.error)
     .finally(() => {
-      newCardPopup.renderSaving(false);
+      newCardPopup.renderLoading(false);
     });
 }
 
@@ -189,7 +191,7 @@ const editProfilePopup = new PopupWithForm(
 editProfilePopup.setEventListeners();
 
 function handleProfileEditSubmit(values) {
-  editProfilePopup.renderSaving(true);
+  editProfilePopup.renderLoading(true);
   api
     .editProfile(values)
     .then((res) => {
@@ -203,7 +205,7 @@ function handleProfileEditSubmit(values) {
     })
     .catch(console.error)
     .finally(() => {
-      editProfilePopup.renderSaving(false);
+      editProfilePopup.renderLoading(false);
     });
 }
 
@@ -221,7 +223,7 @@ const profileEditAvatar = new PopupWithForm(
 profileEditAvatar.setEventListeners();
 
 function handleProfileAvatar(values) {
-  profileEditAvatar.renderSaving(true);
+  profileEditAvatar.renderLoading(true);
   api
     .setAvatar(values)
     .then((res) => {
@@ -236,6 +238,6 @@ function handleProfileAvatar(values) {
       console.error(err);
     })
     .finally(() => {
-      profileEditAvatar.renderSaving(false);
+      profileEditAvatar.renderLoading(false);
     });
 }
