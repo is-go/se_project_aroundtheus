@@ -71,28 +71,10 @@ function handleImageClick(name, link) {
   popupWithImage.open(name, link);
 }
 
-// function handleLikes(card) {
-//   api
-//     .likeCard(card.getId(), card.isLiked())
-//     .then((res) => {
-//       card.toggleLikedStatus(res.isLiked);
-//       return api.likeCard(card.getId(), res.isLiked);
-//     })
-//     .catch((err) => {
-//       console.error(`Error: ${err}`);
-//     });
-// }
-
 function handleLikes(card) {
   api
-    .likeCard(card.getId(), card.isLiked())
-    .then((res) => {
-      card.setLikedStatus(card.isLiked);
-      return card.setLikedStatus(card.isLiked);
-    })
-    .then(() => {
-      card.toggleLikedStatus(card.isLiked);
-    })
+    .likeCard(card.getId(), card.isLiked)
+    .then((res) => card.toggleLikedStatus(res.isLiked))
     .catch((err) => {
       console.error(`Error: ${err}`);
     });
