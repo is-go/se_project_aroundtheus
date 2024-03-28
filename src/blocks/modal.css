@@ -53,11 +53,18 @@
   max-width: 330px;
   margin: 0;
   padding: 0;
-  padding-bottom: 54px;
   font-family: "Inter", "Arial", serif;
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
+}
+
+.modal__heading-with-form {
+  padding-bottom: 38px;
+}
+
+.modal__heading-wtih-inquiry {
+  padding-bottom: 22px;
 }
 
 .modal__form {
@@ -183,7 +190,7 @@
   .modal__heading {
     font-size: 18px;
     line-height: 22px;
-    padding-bottom: 75px;
+    /* padding-bottom: 75px; */
   }
 
   .modal__form {
